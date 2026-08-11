@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | SoleCraft Cobbler</title>
+    <meta name="description" content="Register a client profile to manage your shoe repairs, save preferences, and receive priority drop-off quotes.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#171513',
+                        leather: '#7c4a27',
+                        cognac: '#c87d4a',
+                        cream: '#fcf9f2',
+                        creamDark: '#e8dfd1',
+                        brass: '#d4af37',
+                        primary: '#c87d4a',
+                        secondary: '#171513',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+
+<body class="bg-cream dark:bg-charcoal text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased flex items-center justify-center min-h-screen p-4">
+
+    <!-- Standalone Authentication Container (No normal navbar, no normal footer) -->
+    <div class="w-full max-w-md bg-white dark:bg-stone-800 p-8 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-2xl space-y-6">
+        
+        <!-- Clickable Logo → Home 1 (index.html) -->
+        <div class="text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 group mb-3">
+                <div class="w-10 h-10 rounded bg-amber-800/20 border border-amber-600/30 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col text-left">
+                    <span class="text-xl font-bold tracking-tight text-amber-700 dark:text-amber-500 serif-font">SOLE<span class="text-stone-900 dark:text-stone-100">CRAFT</span></span>
+                    <span class="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold -mt-1">Cobbler Workshop</span>
+                </div>
+            </a>
+            <h1 class="text-2xl font-bold serif-font text-stone-900 dark:text-stone-100">Create Client Profile</h1>
+            <p class="text-xs text-stone-500 mt-1">Register for fast drop-offs and digital repair tickets</p>
+        </div>
+
+        <form action="dashboard.html" method="GET" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Full Name *</label>
+                <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Mobile Phone *</label>
+                <input type="tel" required placeholder="(555) 000-0000" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Create Password *</label>
+                <input type="password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+            </div>
+
+            <button type="submit" class="btn-cobbler w-full py-3.5 text-sm font-semibold uppercase tracking-wider">
+                Register Client Profile
+            </button>
+        </form>
+
+        <div class="text-center text-xs text-stone-500 pt-3 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+            <a href="index.html" class="text-stone-500 hover:text-amber-600 font-medium">← Back to Home 1</a>
+            <a href="login.html" class="text-amber-700 dark:text-amber-400 font-bold hover:underline">Sign In</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

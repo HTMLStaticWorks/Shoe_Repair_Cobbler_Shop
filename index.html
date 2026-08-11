@@ -1,1 +1,565 @@
-jugyfyu
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleCraft Cobbler & Shoe Repair | Bring Your Favorite Shoes Back to Life</title>
+    <meta name="description" content="Expert shoe repair, Goodyear welt resoling, heel restoration, leather polishing, and custom boot crafting. Fast turnaround, transparent pricing, and master craftsmanship.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#171513',
+                        leather: '#7c4a27',
+                        cognac: '#c87d4a',
+                        cream: '#fcf9f2',
+                        creamDark: '#e8dfd1',
+                        brass: '#d4af37',
+                        primary: '#c87d4a',
+                        secondary: '#171513',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+
+<body class="bg-cream dark:bg-charcoal text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full z-[100] transition-all duration-300">
+        <nav class="container mx-auto px-4 md:px-6 py-3.5 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded bg-amber-800/20 border border-amber-600/30 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-amber-700 dark:text-amber-500 serif-font">SOLE<span class="text-stone-900 dark:text-stone-100">CRAFT</span></span>
+                    <span class="text-[9px] uppercase tracking-widest text-stone-500 dark:text-stone-400 font-semibold -mt-1">Cobbler & Workshop</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links (Exactly 6 pages) -->
+            <div class="hidden xl:flex items-center gap-8">
+                <a href="index.html" class="nav-link active">Home 1</a>
+                <a href="home-2.html" class="nav-link">Home 2</a>
+                <a href="shop.html" class="nav-link">Services & Pricing</a>
+                <a href="about.html" class="nav-link">Why Choose Us</a>
+                <a href="blog.html" class="nav-link">Shoe Care</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Desktop Utility Icons -->
+            <div class="hidden xl:flex items-center space-x-5">
+                <button id="rtl-toggle" class="hover:text-amber-600 transition-colors text-xs font-bold uppercase tracking-wider px-2.5 py-1 border border-amber-600/30 rounded text-stone-700 dark:text-stone-300" title="Toggle LTR/RTL">RTL</button>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" title="Toggle theme"></button>
+                <button id="cart-toggle" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors relative" title="View Quote Request">
+                    <svg class="w-6 h-6 text-stone-700 dark:text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </button>
+                <a href="login.html" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-700 dark:text-stone-300" title="Client Login">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Menu Toggle Button (Visible <= 1024px) -->
+            <div class="flex xl:hidden items-center gap-2">
+                <button id="mobile-menu-btn" class="p-2.5 text-stone-800 dark:text-stone-100 hover:text-amber-600 focus:outline-none" aria-label="Open Navigation Menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (For screens <= 1024px) -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-stone-100 dark:bg-stone-900 flex flex-col p-6 xl:hidden overflow-y-auto">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-xl font-bold tracking-tight text-amber-700 dark:text-amber-500 serif-font">SOLE<span class="text-stone-900 dark:text-stone-100">CRAFT</span></span>
+            </a>
+            <button id="mobile-menu-close" class="p-2 text-stone-700 dark:text-stone-300 hover:text-amber-600">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col space-y-4 text-lg font-medium">
+            <a href="index.html" class="text-amber-700 dark:text-amber-500 font-bold py-1">Home 1</a>
+            <a href="home-2.html" class="hover:text-amber-600 py-1 transition-colors">Home 2</a>
+            <a href="shop.html" class="hover:text-amber-600 py-1 transition-colors">Services & Pricing</a>
+            <a href="about.html" class="hover:text-amber-600 py-1 transition-colors">Why Choose Us</a>
+            <a href="blog.html" class="hover:text-amber-600 py-1 transition-colors">Shoe Care</a>
+            <a href="contact.html" class="hover:text-amber-600 py-1 transition-colors">Contact</a>
+        </div>
+
+        <div class="mt-auto pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-stone-500 dark:text-stone-400">Direction & Theme:</span>
+                <div class="flex items-center gap-3">
+                    <button id="rtl-toggle-mobile" class="px-3 py-1 text-xs font-bold border border-amber-600/30 rounded uppercase tracking-wider">RTL</button>
+                    <button id="theme-toggle-mobile" class="p-2 rounded bg-stone-200 dark:bg-stone-800" title="Theme"></button>
+                </div>
+            </div>
+            <a href="login.html" class="flex items-center justify-between p-3 bg-stone-200/60 dark:bg-stone-800 rounded-lg text-stone-800 dark:text-stone-100 font-semibold text-sm">
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    Client Sign In
+                </span>
+                <span class="text-xs text-amber-600 uppercase font-bold">Login →</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quote Drawer Modal -->
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-stone-50 dark:bg-stone-900 shadow-2xl p-6 overflow-y-auto border-l border-stone-200 dark:border-stone-800">
+        <div class="flex justify-between items-center mb-6 pb-4 border-b border-stone-200 dark:border-stone-800">
+            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Your Quote Request</h3>
+            <button id="cart-close" class="p-2 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div id="cart-items-list" class="min-h-[220px]"></div>
+        <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-stone-600 dark:text-stone-400 font-medium">Estimated Starting Total:</span>
+                <span id="cart-total" class="text-xl font-bold text-amber-700 dark:text-amber-500">$0</span>
+            </div>
+            <p class="text-xs text-stone-500 mb-6 italic">* Final price confirmed after hands-on inspection in store.</p>
+            <a href="#dropoff" onclick="document.getElementById('cart-drawer').classList.remove('open')" class="btn-cobbler w-full py-3 text-center uppercase tracking-wider text-sm font-semibold">Proceed to Book Drop-Off</a>
+        </div>
+    </div>
+
+    <!-- HOME 1: SECTION 1 — HERO -->
+    <section class="relative min-h-[90vh] flex items-center pt-28 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-25 dark:opacity-40">
+            <img src="images/hero_cobbler.png" alt="Master Cobbler Workshop" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-100 via-stone-100/90 to-transparent dark:from-charcoal dark:via-charcoal/90 dark:to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 fade-in">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-600/10 border border-amber-600/30 text-amber-800 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                        <svg class="w-4 h-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Master Cobbler & Leather Workshop • Est. 1984
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight serif-font">
+                        Bring Your Favorite Shoes <span class="text-amber-700 dark:text-amber-500 italic block mt-1">Back to Life</span>
+                    </h1>
+                    <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
+                        Don't discard quality footwear. We provide expert shoe repair, Goodyear welt resoling, precision restitching, leather conditioning, and mirror polish care using traditional hand craftsmanship.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#dropoff" class="btn-cobbler text-sm md:text-base py-3.5 px-7">
+                            <span>Book a Repair</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                        <a href="shop.html" class="btn-outline-cobbler text-sm md:text-base py-3.5 px-7">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 fade-in">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-900/20">
+                        <img src="images/hero_cobbler.png" alt="Craftsman at work" class="w-full h-[420px] object-cover">
+                        <div class="absolute bottom-4 left-4 right-4 bg-stone-900/90 backdrop-blur-md p-4 rounded-xl text-stone-100 border border-stone-700">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center font-bold text-white">4.9</div>
+                                <div>
+                                    <div class="flex text-amber-400 text-sm">★★★★★</div>
+                                    <p class="text-xs text-stone-300 font-medium">Over 15,000+ Boots & Shoes Restored</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME 1: SECTION 2 — OUR REPAIR SERVICES -->
+    <section id="services" class="py-20 bg-stone-100 dark:bg-stone-900/60 border-y border-stone-200 dark:border-stone-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Expert Workmanship</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 serif-font text-stone-900 dark:text-stone-100">Our Repair Services</h2>
+                <p class="text-stone-600 dark:text-stone-400 mt-3 text-sm md:text-base">
+                    From simple heel tap replacements to complete Goodyear welt resoles and antique leather restorations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sole Replacement -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/service_sole.png" alt="Sole Replacement" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Sole Replacement</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $65</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            Full JR leather resole, Vibram rubber soles, protective topy half-soles, and cork footbed restoration.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 3–5 Days</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="sole-replacement" data-name="Sole Replacement" data-price="65" data-image="images/service_sole.png">+ Add to Quote</button>
+                    </div>
+                </div>
+
+                <!-- Heel Repair -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/4bG5I3qB7e7aHqxPXWBQsEUw9o9omSq8L7Mo4tCp-jcb80rQIv_p3bMWKu1Hw67AXV6B5ZNNhLh4kKNaB3-3GtJIlRlNyP23onlzJb_5yPVzQJSBDoHWZi0pC9_gu2Nl09LFxIEsBXfIMx17JN0O_jJgHP5vLFmA3Hp4EpT6WYuMQbYdlJe1WLVDUsQ71ehf.jpg" alt="Heel Repair" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Heel Repair</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $28</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            Rear heel cap replacement, rubber grip heels, Cuban heel rebuilding, and anti-slip rubber bases.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 24–48h</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="heel-repair" data-name="Heel Repair" data-price="28" data-image="images/4bG5I3qB7e7aHqxPXWBQsEUw9o9omSq8L7Mo4tCp-jcb80rQIv_p3bMWKu1Hw67AXV6B5ZNNhLh4kKNaB3-3GtJIlRlNyP23onlzJb_5yPVzQJSBDoHWZi0pC9_gu2Nl09LFxIEsBXfIMx17JN0O_jJgHP5vLFmA3Hp4EpT6WYuMQbYdlJe1WLVDUsQ71ehf.jpg">+ Add to Quote</button>
+                    </div>
+                </div>
+
+                <!-- Stitching & Patching -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/1qK8th0hJtew391oj08D5oJNd67A9AJ6h9m6539CVBtUysSJCdJkUTo1kwcKpFnj-UyNAf35uF22bXBLHVwAATSl3TpPw4WN2t4H5tXYEBJNnSFeGHeh5CnCbdEegdtV-JO4n84WWWNEnhSHRERLLlXN3Xl8cPHxGQBd08kIPvtOMW3ELe_jgE40D3EdhotU.jpg" alt="Stitching & Patching" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Stitching & Patching</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $22</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            Hand restitching torn seams, inner heel lining patches, elastic strap replacement, and eyelet repair.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 24–48h</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="stitching" data-name="Stitching & Patching" data-price="22" data-image="images/1qK8th0hJtew391oj08D5oJNd67A9AJ6h9m6539CVBtUysSJCdJkUTo1kwcKpFnj-UyNAf35uF22bXBLHVwAATSl3TpPw4WN2t4H5tXYEBJNnSFeGHeh5CnCbdEegdtV-JO4n84WWWNEnhSHRERLLlXN3Xl8cPHxGQBd08kIPvtOMW3ELe_jgE40D3EdhotU.jpg">+ Add to Quote</button>
+                    </div>
+                </div>
+
+                <!-- Leather Restoration -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/service_polish.png" alt="Leather Restoration" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Leather Restoration</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $50</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            Deep nourishment of dry leather, crack filling, vintage patina enhancement, and salt damage neutralization.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 2–3 Days</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="leather-restoration" data-name="Leather Restoration" data-price="50" data-image="images/service_polish.png">+ Add to Quote</button>
+                    </div>
+                </div>
+
+                <!-- Shoe Polishing -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/3doXZGL2aGiw0iNEb3ur4rFGTCb9hAUKSXhho8A7N-9lVb_Yypdzj5lCfYv2v06PR0B3Qga2v0uxbBvK-P4sx1D45TUXRTIzMOMsLnz1WkcCnOC75wgZl_3ORoIdGh92F3IS_XygQX4RZPuTMgbybrkW1h1xZ48E2AjV8mwdYlR5dc-FpNyV3DSJDvz1jE07.jpg" alt="Shoe Polishing" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Shoe Polishing</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $25</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            High-gloss wax polishing, edge redressing, Saphir cream conditioning, and toe cap mirror shines.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 24h</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="shoe-polishing" data-name="Shoe Polishing" data-price="25" data-image="images/3doXZGL2aGiw0iNEb3ur4rFGTCb9hAUKSXhho8A7N-9lVb_Yypdzj5lCfYv2v06PR0B3Qga2v0uxbBvK-P4sx1D45TUXRTIzMOMsLnz1WkcCnOC75wgZl_3ORoIdGh92F3IS_XygQX4RZPuTMgbybrkW1h1xZ48E2AjV8mwdYlR5dc-FpNyV3DSJDvz1jE07.jpg">+ Add to Quote</button>
+                    </div>
+                </div>
+
+                <!-- Color Restoration -->
+                <div class="bg-white dark:bg-stone-800/80 rounded-xl p-6 border border-stone-200 dark:border-stone-700/60 card-hover flex flex-col justify-between fade-in">
+                    <div>
+                        <div class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-stone-100 dark:bg-stone-900">
+                            <img src="images/4kUe3VjPfPEtCf-eFZS-lNLFyWOOF3ZTLXynrySYF01IcExTfbx69oL24UMgG55dTXTXpZ6eb6ubgF_z02Q1IFKyFwyjcDfM35jyXXgRI9gSeKe-6-ZA6QH6aR0v1gPuFV6CnUa2heUymAZ1hlpnDdWyhSzeStwlJBqOIc3cF_vuO3buh-aW209naCjJX7bI.jpg" alt="Color Restoration" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold serif-font text-stone-900 dark:text-stone-100">Color Restoration</h3>
+                            <span class="text-amber-700 dark:text-amber-400 font-bold text-sm bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded">From $45</span>
+                        </div>
+                        <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                            Hand re-dyeing faded leather, matching original factory pigments, and protective sealant application.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 dark:border-stone-700 flex justify-between items-center">
+                        <span class="text-xs text-stone-500">Turnaround: 3 Days</span>
+                        <button class="add-to-cart text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline" data-id="color-restoration" data-name="Color Restoration" data-price="45" data-image="images/4kUe3VjPfPEtCf-eFZS-lNLFyWOOF3ZTLXynrySYF01IcExTfbx69oL24UMgG55dTXTXpZ6eb6ubgF_z02Q1IFKyFwyjcDfM35jyXXgRI9gSeKe-6-ZA6QH6aR0v1gPuFV6CnUa2heUymAZ1hlpnDdWyhSzeStwlJBqOIc3cF_vuO3buh-aW209naCjJX7bI.jpg">+ Add to Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME 1: SECTION 3 — WHY CUSTOMERS TRUST US -->
+    <section class="py-20 bg-cream dark:bg-charcoal">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 fade-in">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-900/20">
+                        <img src="images/C.jpg" alt="Master Workshop Environment" class="w-full h-[450px] object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6 fade-in">
+                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Uncompromising Standard</span>
+                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100">Why Customers Trust Us</h2>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm md:text-base leading-relaxed">
+                        For over four decades, footwear enthusiasts have trusted SoleCraft with their prized leather boots, luxury heels, and fine dress shoes.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Skilled Craftsmanship</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400">Master cobblers trained in traditional Goodyear welt techniques.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Quality Materials</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400">Certified Vibram® rubber outsoles and JR oak-bark leather.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Fast Turnaround</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400">24 to 48 hour express service available for urgent needs.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Transparent Pricing</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400">Clear rates with free drop-off inspection before starting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME 1: SECTION 4 — BEFORE & AFTER / SHOE RESTORATION -->
+    <section class="py-20 bg-stone-100 dark:bg-stone-900/60 border-t border-stone-200 dark:border-stone-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
+                <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Real Transformations</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 serif-font text-stone-900 dark:text-stone-100">Before & After Shoe Restoration</h2>
+                <p class="text-stone-600 dark:text-stone-400 mt-2 text-sm">
+                    Drag the interactive slider to see how severely worn heritage leather boots are brought back to pristine condition.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto flex flex-col items-center gap-8 fade-in">
+                <div class="ba-container">
+                    <!-- Before Image -->
+                    <img src="images/before_boot.png" alt="Worn Boot Before Repair" class="ba-image-before">
+                    <span class="absolute bottom-4 left-4 bg-red-900/80 text-white text-xs font-bold uppercase px-3 py-1 rounded z-0 pointer-events-none">BEFORE</span>
+
+                    <!-- After Image -->
+                    <div class="ba-image-after-wrapper">
+                        <img src="images/after_boot.png" alt="Restored Boot After Repair" class="ba-image-after">
+                        <span class="absolute bottom-4 right-4 bg-emerald-900/80 text-white text-xs font-bold uppercase px-3 py-1 rounded z-[5] pointer-events-none">AFTER</span>
+                    </div>
+
+                    <!-- Handle line -->
+                    <div class="ba-handle">
+                        <div class="ba-handle-button">↔</div>
+                    </div>
+                </div>
+
+                <a href="#dropoff" class="btn-cobbler py-3.5 px-8 text-sm font-semibold uppercase tracking-wider">
+                    Restore Your Shoes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME 1: SECTION 5 — CONTACT / DROP-OFF CTA -->
+    <section id="dropoff" class="py-20 bg-cream dark:bg-charcoal border-t border-stone-200 dark:border-stone-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6 fade-in">
+                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Book Your Inspection</span>
+                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100">Drop-Off & Quote Request</h2>
+                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+                        Visit our local workshop or send photos for a quick estimate. Every pair is inspected hands-on before work begins.
+                    </p>
+
+                    <div class="space-y-4 pt-2 text-sm text-stone-700 dark:text-stone-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold">📍</div>
+                            <span>142 Craftsman Way, Heritage District</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold">📞</div>
+                            <span>(555) 019-2834 • Direct Workshop Line</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold">🕒</div>
+                            <span>Mon – Fri: 8am–6pm | Sat: 9am–4pm</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/15550192834" target="_blank" class="btn-whatsapp py-3 px-5 inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l.999 1.583-1.077 3.93 4.027-1.056 1.594 1.01z"/></svg>
+                        Get a Repair Quote via WhatsApp
+                    </a>
+                </div>
+
+                <div class="lg:col-span-7 bg-white dark:bg-stone-800 p-8 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-xl fade-in">
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Your Full Name *</label>
+                                <input type="text" name="name" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="(555) 000-0000" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Repair Service Type *</label>
+                                <select required class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+                                    <option value="">Select Service...</option>
+                                    <option value="sole">Sole Replacement</option>
+                                    <option value="heel">Heel Repair</option>
+                                    <option value="polish">Leather Polishing</option>
+                                    <option value="stitching">Stitching & Patching</option>
+                                    <option value="cleaning">Shoe Cleaning</option>
+                                    <option value="boot">Boot Repair</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Preferred Drop-Off Date *</label>
+                                <input type="date" required class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Message / Notes</label>
+                            <textarea rows="3" placeholder="Describe shoe brand, specific issues, or preferred sole type..." class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-amber-600"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-cobbler w-full py-3.5 text-sm font-semibold uppercase tracking-wider">
+                            Get a Repair Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Consistent across all pages) -->
+    <footer class="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl font-bold tracking-tight text-amber-500 serif-font">SOLE<span class="text-stone-100">CRAFT</span></span>
+                    </a>
+                    <p class="text-xs text-stone-400 leading-relaxed mb-4">
+                        Handcrafted shoe repair, Goodyear welt resoling, and luxury leather restoration. Sustaining fine footwear quality since 1984.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex items-center gap-3 pt-2 text-stone-400">
+                        <a href="#" class="w-8 h-8 rounded bg-stone-900 border border-stone-800 flex items-center justify-center hover:text-amber-400 hover:border-amber-500 transition-all" title="Facebook">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded bg-stone-900 border border-stone-800 flex items-center justify-center hover:text-amber-400 hover:border-amber-500 transition-all" title="Instagram">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://wa.me/15550192834" target="_blank" class="w-8 h-8 rounded bg-stone-900 border border-stone-800 flex items-center justify-center hover:text-amber-400 hover:border-amber-500 transition-all" title="WhatsApp">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l.999 1.583-1.077 3.93 4.027-1.056 1.594 1.01z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded bg-stone-900 border border-stone-800 flex items-center justify-center hover:text-amber-400 hover:border-amber-500 transition-all" title="YouTube">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html" class="hover:text-amber-400 transition-colors">Home 1</a></li>
+                        <li><a href="home-2.html" class="hover:text-amber-400 transition-colors">Home 2</a></li>
+                        <li><a href="shop.html" class="hover:text-amber-400 transition-colors">Services & Pricing</a></li>
+                        <li><a href="about.html" class="hover:text-amber-400 transition-colors">Why Choose Us</a></li>
+                        <li><a href="blog.html" class="hover:text-amber-400 transition-colors">Shoe Care</a></li>
+                        <li><a href="contact.html" class="hover:text-amber-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Workshop Hours</h4>
+                    <div class="text-xs space-y-2 text-stone-400">
+                        <div class="flex justify-between"><span>Monday – Friday:</span> <span class="text-stone-200 font-medium">8:00 AM – 6:00 PM</span></div>
+                        <div class="flex justify-between"><span>Saturday:</span> <span class="text-stone-200 font-medium">9:00 AM – 4:00 PM</span></div>
+                        <div class="flex justify-between"><span>Sunday:</span> <span class="text-amber-500 font-medium">Closed</span></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Contact Station</h4>
+                    <p class="text-xs text-stone-400 mb-2">📍 142 Craftsman Way, Heritage District</p>
+                    <p class="text-xs text-stone-400 mb-2">📞 (555) 019-2834</p>
+                    <p class="text-xs text-stone-400 mb-4">✉️ service@solecraftcobbler.com</p>
+                    <a href="dashboard.html" class="btn-cobbler w-full text-xs py-2 uppercase tracking-wider font-semibold inline-block text-center">Track Repair Ticket</a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-stone-900 text-center text-xs text-stone-500 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2027 SoleCraft Cobbler Workshop. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="cart-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900 text-amber-400 border border-amber-600/40 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider shadow-2xl z-[120] pointer-events-none transition-all duration-300"></div>
+
+    <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
