@@ -298,7 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateRTLText(btn, isRTL) {
         if (!btn) return;
-        btn.innerText = isRTL ? 'LTR' : 'RTL';
+        const arrowIcon = `<svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg>`;
+        btn.innerHTML = `<span class="inline-flex items-center gap-1.5">${arrowIcon}<span>${isRTL ? 'LTR' : 'RTL'}</span></span>`;
     }
 });
 
