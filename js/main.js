@@ -247,6 +247,46 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('touchend', onEnd);
     });
 
+    // 1. Hero Section Entrance Animation Trigger
+    const heroHeading = document.querySelector('section h1');
+    if (heroHeading) {
+        heroHeading.classList.add('hero-anim-heading');
+        const heroSubtext = heroHeading.nextElementSibling;
+        if (heroSubtext && heroSubtext.tagName === 'P') {
+            heroSubtext.classList.add('hero-anim-subtext');
+        }
+        const heroContainer = heroHeading.closest('.space-y-6') || heroHeading.parentElement;
+        if (heroContainer) {
+            const heroCta = heroContainer.querySelector('.flex.flex-col, .flex.gap-4, .btn-cobbler')?.parentElement;
+            if (heroCta) heroCta.classList.add('hero-anim-cta');
+        }
+    }
+    const heroImg = document.querySelector('section img.object-cover, section .rounded-2xl img, section img[alt*="Cobbler"], section img[alt*="Hero"]');
+    if (heroImg) {
+        const heroImgWrapper = heroImg.closest('.rounded-2xl') || heroImg.parentElement;
+        if (heroImgWrapper) heroImgWrapper.classList.add('hero-anim-image');
+    }
+
+    // 3. Before & After Section Reveal Observer
+    const baContainers = document.querySelectorAll('.ba-container');
+    baContainers.forEach(container => {
+        const baSection = container.closest('section') || container;
+        baSection.classList.add('ba-section-reveal');
+        const baObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const handleBtn = entry.target.querySelector('.ba-handle-button');
+                    if (handleBtn) {
+                        handleBtn.classList.add('reveal-cue');
+                    }
+                    baObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        baObserver.observe(baSection);
+    });
+
     // Intersection Observer for Fade-in effects
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
