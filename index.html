@@ -61,7 +61,7 @@
 
             <!-- Desktop Utility Icons -->
             <div class="hidden xl:flex items-center space-x-5">
-                <button id="rtl-toggle" class="hover:text-amber-600 transition-colors text-xs font-bold uppercase tracking-wider px-2.5 py-1 border border-amber-600/30 rounded text-stone-700 dark:text-stone-300 flex items-center gap-1.5" title="Toggle LTR/RTL Layout"><span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg><span>RTL</span></span></button>
+                <button id="rtl-toggle" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 transition-colors flex items-center justify-center" title="Toggle LTR/RTL Layout"></button>
                 <button id="theme-toggle" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" title="Toggle theme"></button>
                 <button id="cart-toggle" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors relative" title="View Quote Request">
                     <svg class="w-6 h-6 text-stone-700 dark:text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,8 +76,14 @@
                 </a>
             </div>
 
-            <!-- Mobile & Tablet Menu Toggle Button (Visible <= 1024px) -->
-            <div class="flex xl:hidden items-center gap-2">
+            <!-- Mobile & Tablet Menu Toggle Button & Utility Cart (Visible <= 1024px) -->
+            <div class="flex xl:hidden items-center gap-3">
+                <button id="cart-toggle-header-mobile" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors relative text-stone-700 dark:text-stone-300" title="View Quote Request">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </button>
                 <button id="mobile-menu-btn" class="p-2.5 text-stone-800 dark:text-stone-100 hover:text-amber-600 focus:outline-none" aria-label="Open Navigation Menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -109,20 +115,23 @@
             <a href="contact.html" class="hover:text-amber-600 py-1 transition-colors">Contact</a>
         </div>
 
-        <div class="mt-auto pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-4">
-            <div class="flex items-center justify-between">
-                <span class="text-sm text-stone-500 dark:text-stone-400">Direction & Theme:</span>
-                <div class="flex items-center gap-3">
-                    <button id="rtl-toggle-mobile" class="px-3 py-1 text-xs font-bold border border-amber-600/30 rounded uppercase tracking-wider inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg><span>RTL</span></button>
-                    <button id="theme-toggle-mobile" class="p-2 rounded bg-stone-200 dark:bg-stone-800" title="Theme"></button>
-                </div>
-            </div>
-            <a href="login.html" class="flex items-center justify-between p-3 bg-stone-200/60 dark:bg-stone-800 rounded-lg text-stone-800 dark:text-stone-100 font-semibold text-sm">
-                <span class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                    Client Sign In
-                </span>
-                <span class="text-xs text-amber-600 uppercase font-bold">Login →</span>
+        <div class="mt-auto pt-6 border-t border-stone-200 dark:border-stone-800 flex items-center justify-around gap-2">
+            <button id="rtl-toggle-mobile" class="p-3 rounded-lg bg-stone-200/60 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 focus:outline-none transition-colors" title="Toggle LTR/RTL">
+                <svg class="w-6 h-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg>
+            </button>
+            <button id="theme-toggle-mobile" class="p-3 rounded-lg bg-stone-200/60 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 focus:outline-none transition-colors" title="Toggle Theme">
+                <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+            </button>
+            <button id="cart-toggle-mobile" class="p-3 rounded-lg bg-stone-200/60 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 focus:outline-none transition-colors relative" title="View Quote Request">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <span id="cart-count-mobile" class="cart-badge">0</span>
+            </button>
+            <a href="login.html" class="p-3 rounded-lg bg-stone-200/60 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-amber-600 focus:outline-none transition-colors" title="Client Account / Sign In">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
             </a>
         </div>
     </div>
@@ -155,19 +164,19 @@
 
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 fade-in">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-600/10 border border-amber-600/30 text-amber-800 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                <div class="lg:col-span-7 space-y-6 fade-in max-lg:text-center max-lg:flex max-lg:flex-col max-lg:items-center">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-600/10 border border-amber-600/30 text-amber-800 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider max-lg:mx-auto">
                         <svg class="w-4 h-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                         Master Cobbler & Leather Workshop • Est. 1984
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight serif-font">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight serif-font max-lg:text-center">
                         Bring Your Favorite Shoes <span class="text-amber-700 dark:text-amber-500 italic block mt-1">Back to Life</span>
                     </h1>
-                    <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
+                    <p class="text-base md:text-lg text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed max-lg:text-center max-lg:mx-auto">
                         Don't discard quality footwear. We provide expert shoe repair, Goodyear welt resoling, precision restitching, leather conditioning, and mirror polish care using traditional hand craftsmanship.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2 max-lg:justify-center max-lg:items-center max-lg:w-full">
                         <a href="#dropoff" class="btn-cobbler text-sm md:text-base py-3.5 px-7">
                             <span>Book a Repair</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -331,6 +340,42 @@
         </div>
     </section>
 
+    <!-- HOME 1: NEW SECTION 1 — BOOT ANATOMY & GOODYEAR WELT CRAFT -->
+    <section class="py-20 bg-stone-900 text-stone-100 relative overflow-hidden border-t border-stone-800">
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-amber-400 font-semibold uppercase tracking-widest text-xs">Craft Anatomy</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 serif-font text-white">Goodyear Welt Construction Breakdown</h2>
+                <p class="text-stone-400 mt-3 text-sm md:text-base max-w-2xl mx-auto">
+                    Why Goodyear welted footwear can be resoled again and again for decades without damaging the upper leather.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+                <div class="bg-stone-800/80 p-6 rounded-2xl border border-stone-700/80 hover:border-amber-500/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition-transform">01</div>
+                    <h3 class="text-lg font-bold serif-font text-white mb-2">Full Grain Upper Leather</h3>
+                    <p class="text-xs text-stone-300 leading-relaxed">Hand-selected premium hides conditioned with natural oils for waterproof flexibility and timeless aging.</p>
+                </div>
+                <div class="bg-stone-800/80 p-6 rounded-2xl border border-stone-700/80 hover:border-amber-500/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition-transform">02</div>
+                    <h3 class="text-lg font-bold serif-font text-white mb-2">360° Goodyear Leather Welt</h3>
+                    <p class="text-xs text-stone-300 leading-relaxed">A durable strip of thick leather lock-stitched to both the upper and the insole rib for structural integrity.</p>
+                </div>
+                <div class="bg-stone-800/80 p-6 rounded-2xl border border-stone-700/80 hover:border-amber-500/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition-transform">03</div>
+                    <h3 class="text-lg font-bold serif-font text-white mb-2">Cork Filler Footbed</h3>
+                    <p class="text-xs text-stone-300 leading-relaxed">Natural ground cork paste fills the cavity under the insole, molding customly to your foot structure over time.</p>
+                </div>
+                <div class="bg-stone-800/80 p-6 rounded-2xl border border-stone-700/80 hover:border-amber-500/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition-transform">04</div>
+                    <h3 class="text-lg font-bold serif-font text-white mb-2">JR Oak-Bark Resole</h3>
+                    <p class="text-xs text-stone-300 leading-relaxed">German oak-bark tanned leather outsoles stitched directly onto the welt, easily replaceable infinite times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- HOME 1: SECTION 3 — WHY CUSTOMERS TRUST US -->
     <section class="py-20 bg-cream dark:bg-charcoal">
         <div class="container mx-auto px-4 md:px-6">
@@ -341,29 +386,29 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-6 space-y-6 fade-in">
-                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Uncompromising Standard</span>
-                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100">Why Customers Trust Us</h2>
-                    <p class="text-stone-600 dark:text-stone-300 text-sm md:text-base leading-relaxed">
+                <div class="lg:col-span-6 space-y-6 fade-in max-lg:text-center">
+                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs max-lg:block max-lg:text-center">Uncompromising Standard</span>
+                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100 max-lg:text-center">Why Customers Trust Us</h2>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm md:text-base leading-relaxed max-lg:text-center max-lg:mx-auto">
                         For over four decades, footwear enthusiasts have trusted SoleCraft with their prized leather boots, luxury heels, and fine dress shoes.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Skilled Craftsmanship</h4>
-                            <p class="text-xs text-stone-600 dark:text-stone-400">Master cobblers trained in traditional Goodyear welt techniques.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 items-stretch">
+                        <div class="p-5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 h-full flex flex-col justify-center max-lg:text-center shadow-sm hover:border-amber-600/40 transition-colors">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1 text-base">Skilled Craftsmanship</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Master cobblers trained in traditional Goodyear welt techniques.</p>
                         </div>
-                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Quality Materials</h4>
-                            <p class="text-xs text-stone-600 dark:text-stone-400">Certified Vibram® rubber outsoles and JR oak-bark leather.</p>
+                        <div class="p-5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 h-full flex flex-col justify-center max-lg:text-center shadow-sm hover:border-amber-600/40 transition-colors">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1 text-base">Quality Materials</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Certified Vibram® rubber outsoles and JR oak-bark leather.</p>
                         </div>
-                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Fast Turnaround</h4>
-                            <p class="text-xs text-stone-600 dark:text-stone-400">24 to 48 hour express service available for urgent needs.</p>
+                        <div class="p-5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 h-full flex flex-col justify-center max-lg:text-center shadow-sm hover:border-amber-600/40 transition-colors">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1 text-base">Fast Turnaround</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">24 to 48 hour express service available for urgent needs.</p>
                         </div>
-                        <div class="p-4 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1">Transparent Pricing</h4>
-                            <p class="text-xs text-stone-600 dark:text-stone-400">Clear rates with free drop-off inspection before starting.</p>
+                        <div class="p-5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 h-full flex flex-col justify-center max-lg:text-center shadow-sm hover:border-amber-600/40 transition-colors">
+                            <h4 class="font-bold serif-font text-stone-900 dark:text-stone-100 mb-1 text-base">Transparent Pricing</h4>
+                            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">Clear rates with free drop-off inspection before starting.</p>
                         </div>
                     </div>
                 </div>
@@ -407,18 +452,81 @@
         </div>
     </section>
 
+    <!-- HOME 1: NEW SECTION 2 — VERIFIED CLIENT REVIEWS & RESTORATIONS -->
+    <section class="py-20 bg-stone-100 dark:bg-stone-900/80 border-t border-stone-200 dark:border-stone-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Customer Stories</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 serif-font text-stone-900 dark:text-stone-100">Trusted By Shoe Collectors</h2>
+                <p class="text-stone-600 dark:text-stone-400 mt-2 text-sm max-w-xl mx-auto">
+                    Read genuine feedback from customers who had their vintage boots, dress shoes, and luxury leather heels restored by our workshop.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in">
+                <div class="bg-white dark:bg-stone-800 p-8 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-4">★★★★★</div>
+                        <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "SoleCraft saved my 12-year-old Red Wing boots. The Goodyear welt resole with Vibram lug soles looks better than brand new!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-stone-100 dark:border-stone-700">
+                        <div class="w-10 h-10 rounded-full bg-amber-600/20 text-amber-600 font-bold flex items-center justify-center text-sm">MC</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-stone-900 dark:text-stone-100 serif-font">Marcus Vance</h4>
+                            <p class="text-[10px] text-stone-500 uppercase tracking-wider">Heritage Boot Owner • Resole</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-stone-800 p-8 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-4">★★★★★</div>
+                        <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "Impeccable color matching on my designer heels! They repaired the torn leather lining and restored the patina flawlessly."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-stone-100 dark:border-stone-700">
+                        <div class="w-10 h-10 rounded-full bg-amber-600/20 text-amber-600 font-bold flex items-center justify-center text-sm">EL</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-stone-900 dark:text-stone-100 serif-font">Elena Laurent</h4>
+                            <p class="text-[10px] text-stone-500 uppercase tracking-wider">Luxury Heels • Dye & Stitching</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-stone-800 p-8 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 text-sm mb-4">★★★★★</div>
+                        <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "Fast 48-hour turn-around on my Allen Edmonds oxfords. The Saphir wax mirror shine on the toe cap is absolute art."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-stone-100 dark:border-stone-700">
+                        <div class="w-10 h-10 rounded-full bg-amber-600/20 text-amber-600 font-bold flex items-center justify-center text-sm">DR</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-stone-900 dark:text-stone-100 serif-font">David Reynolds</h4>
+                            <p class="text-[10px] text-stone-500 uppercase tracking-wider">Dress Shoes • Polish & Heel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- HOME 1: SECTION 5 — CONTACT / DROP-OFF CTA -->
     <section id="dropoff" class="py-20 bg-cream dark:bg-charcoal border-t border-stone-200 dark:border-stone-800">
         <div class="container mx-auto px-4 md:px-6">
             <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 space-y-6 fade-in">
-                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs">Book Your Inspection</span>
-                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100">Drop-Off & Quote Request</h2>
-                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+                <div class="lg:col-span-5 space-y-6 fade-in text-center flex flex-col items-center">
+                    <span class="text-amber-700 dark:text-amber-500 font-semibold uppercase tracking-widest text-xs block text-center">Book Your Inspection</span>
+                    <h2 class="text-3xl md:text-4xl font-bold serif-font text-stone-900 dark:text-stone-100 text-center">Drop-Off & Quote Request</h2>
+                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed text-center max-w-md mx-auto">
                         Visit our local workshop or send photos for a quick estimate. Every pair is inspected hands-on before work begins.
                     </p>
 
-                    <div class="space-y-4 pt-2 text-sm text-stone-700 dark:text-stone-300">
+                    <div class="space-y-4 pt-2 text-sm text-stone-700 dark:text-stone-300 flex flex-col items-center">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold">📍</div>
                             <span>142 Craftsman Way, Heritage District</span>
@@ -433,7 +541,7 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/15550192834" target="_blank" class="btn-whatsapp py-3 px-5 inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold">
+                    <a href="https://wa.me/15550192834" target="_blank" class="btn-whatsapp py-3 px-5 inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold mx-auto">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l.999 1.583-1.077 3.93 4.027-1.056 1.594 1.01z"/></svg>
                         Get a Repair Quote via WhatsApp
                     </a>
@@ -488,8 +596,8 @@
     <!-- FOOTER (Consistent across all pages) -->
     <footer class="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
+                <div class="lg:col-span-4">
                     <a href="index.html" class="flex items-center gap-3 mb-4 group">
                         <div class="w-10 h-10 rounded bg-amber-800/20 border border-amber-600/30 flex items-center justify-center text-amber-500">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -521,7 +629,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="lg:col-span-2">
                     <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Quick Links</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="index.html" class="hover:text-amber-400 transition-colors">Home 1</a></li>
@@ -533,7 +641,7 @@
                     </ul>
                 </div>
 
-                <div>
+                <div class="lg:col-span-3">
                     <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Workshop Hours</h4>
                     <div class="text-xs space-y-2 text-stone-400">
                         <div class="flex justify-between"><span>Monday – Friday:</span> <span class="text-stone-200 font-medium">8:00 AM – 6:00 PM</span></div>
@@ -542,12 +650,12 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="lg:col-span-3">
                     <h4 class="text-sm font-bold text-stone-100 uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Contact Station</h4>
                     <p class="text-xs text-stone-400 mb-2">📍 142 Craftsman Way, Heritage District</p>
                     <p class="text-xs text-stone-400 mb-2">📞 (555) 019-2834</p>
                     <p class="text-xs text-stone-400 mb-4">✉️ service@solecraftcobbler.com</p>
-                    <a href="dashboard.html" class="btn-cobbler w-full text-xs py-2 uppercase tracking-wider font-semibold inline-block text-center">Track Repair Ticket</a>
+                    <a href="dashboard.html" class="btn-cobbler w-full text-xs py-2.5 uppercase tracking-wider font-semibold flex items-center justify-center text-center">Track Repair Ticket</a>
                 </div>
             </div>
 
@@ -563,7 +671,7 @@
     </footer>
 
     <!-- Toast Notification -->
-    <div id="cart-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900 text-amber-400 border border-amber-600/40 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider shadow-2xl z-[120] pointer-events-none transition-all duration-300"></div>
+    <div id="cart-toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-stone-900 text-amber-400 border border-amber-600/40 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider shadow-2xl z-[120] pointer-events-none transition-all duration-300"></div>
 
     <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
 

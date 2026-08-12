@@ -104,18 +104,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Quote Cart Event Listeners
-    if (cartToggle) {
-        cartToggle.addEventListener('click', () => {
-            if (cartDrawer) cartDrawer.classList.add('open');
-        });
-    }
-    const cartToggleMobile = document.getElementById('cart-toggle-mobile');
-    if (cartToggleMobile) {
-        cartToggleMobile.addEventListener('click', () => {
-            if (mobileMenu) mobileMenu.classList.remove('open');
-            if (cartDrawer) cartDrawer.classList.add('open');
-        });
-    }
+    const cartToggles = [
+        document.getElementById('cart-toggle'),
+        document.getElementById('cart-toggle-mobile'),
+        document.getElementById('cart-toggle-header-mobile')
+    ];
+    cartToggles.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.remove('open');
+                if (cartDrawer) cartDrawer.classList.add('open');
+            });
+        }
+    });
+
     if (cartClose) {
         cartClose.addEventListener('click', () => {
             if (cartDrawer) cartDrawer.classList.remove('open');
@@ -189,8 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsList.innerHTML = '<p class="text-sm text-stone-500 dark:text-stone-400 text-center py-8">Your repair request list is empty. Select services from our pricing guide.</p>';
         }
 
-        const cartCounts = [document.getElementById('cart-count'), document.getElementById('cart-count-mobile')];
-        cartCounts.forEach(el => {
+        const cartBadges = document.querySelectorAll('.cart-badge, #cart-count, #cart-count-mobile, #cart-count-header-mobile');
+        cartBadges.forEach(el => {
             if (el) el.innerText = count;
         });
         if (cartTotal) cartTotal.innerText = `$${total.toLocaleString()}`;
@@ -199,8 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function showToast(msg) {
         if (!cartToast) return;
         cartToast.innerText = msg;
+        cartToast.classList.remove('hidden');
         cartToast.classList.add('show');
-        setTimeout(() => cartToast.classList.remove('show'), 3000);
+        setTimeout(() => {
+            cartToast.classList.remove('show');
+            cartToast.classList.add('hidden');
+        }, 3000);
     }
 
     // Interactive Before / After Slider
@@ -320,6 +326,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Password Visibility Eye Toggle Handler
+    document.querySelectorAll('.toggle-password').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const input = btn.previousElementSibling || btn.parentElement.querySelector('input');
+            if (input) {
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                btn.innerHTML = isPassword 
+                    ? `<svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908a10.038 10.038 0 013.682-.763c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21M3 3l18 18"></path></svg>`
+                    : `<svg class="w-5 h-5 text-stone-400 hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>`;
+            }
+        });
+    });
+
     // Initial UI State Sync
     themeBtns.forEach(btn => updateThemeIcon(btn, savedTheme));
     rtlBtns.forEach(btn => updateRTLText(btn, savedRTL));
@@ -333,8 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateRTLText(btn, isRTL) {
         if (!btn) return;
-        const arrowIcon = `<svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg>`;
-        btn.innerHTML = `<span class="inline-flex items-center gap-1.5">${arrowIcon}<span>${isRTL ? 'LTR' : 'RTL'}</span></span>`;
+        btn.innerHTML = `<svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 7h10m0 0l-3.5-3.5M17 7l-3.5 3.5M17 17H7m0 0l3.5-3.5M7 17l3.5 3.5"></path></svg>`;
     }
 });
 

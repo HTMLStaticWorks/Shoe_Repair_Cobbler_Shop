@@ -501,10 +501,29 @@ header.sticky {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
 }
 
 #scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scroll-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(200, 125, 74, 0.45);
+}
+
+/* Toast Visibility Fix */
+#cart-toast {
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+#cart-toast.show {
     opacity: 1;
     visibility: visible;
 }
