@@ -248,44 +248,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 1. Hero Section Entrance Animation Trigger
-    const heroHeading = document.querySelector('section h1');
-    if (heroHeading) {
-        heroHeading.classList.add('hero-anim-heading');
-        const heroSubtext = heroHeading.nextElementSibling;
-        if (heroSubtext && heroSubtext.tagName === 'P') {
-            heroSubtext.classList.add('hero-anim-subtext');
-        }
-        const heroContainer = heroHeading.closest('.space-y-6') || heroHeading.parentElement;
-        if (heroContainer) {
-            const heroCta = heroContainer.querySelector('.flex.flex-col, .flex.gap-4, .btn-cobbler')?.parentElement;
-            if (heroCta) heroCta.classList.add('hero-anim-cta');
-        }
-    }
-    const heroImg = document.querySelector('section img.object-cover, section .rounded-2xl img, section img[alt*="Cobbler"], section img[alt*="Hero"]');
-    if (heroImg) {
-        const heroImgWrapper = heroImg.closest('.rounded-2xl') || heroImg.parentElement;
-        if (heroImgWrapper) heroImgWrapper.classList.add('hero-anim-image');
+    const firstSection = document.querySelector('section');
+    if (firstSection) {
+        const badge = firstSection.querySelector('.rounded-full, .inline-flex');
+        if (badge) badge.classList.add('hero-badge');
+
+        const title = firstSection.querySelector('h1');
+        if (title) title.classList.add('hero-title');
+
+        const desc = firstSection.querySelector('p');
+        if (desc) desc.classList.add('hero-desc');
+
+        const cta = firstSection.querySelector('.btn-cobbler')?.closest('.flex');
+        if (cta) cta.classList.add('hero-cta');
+
+        const imgBox = firstSection.querySelector('.rounded-2xl, img.object-cover')?.closest('.relative, .rounded-2xl');
+        if (imgBox) imgBox.classList.add('hero-img-box');
     }
 
     // 3. Before & After Section Reveal Observer
     const baContainers = document.querySelectorAll('.ba-container');
-    baContainers.forEach(container => {
-        const baSection = container.closest('section') || container;
-        baSection.classList.add('ba-section-reveal');
-        const baObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    const handleBtn = entry.target.querySelector('.ba-handle-button');
-                    if (handleBtn) {
-                        handleBtn.classList.add('reveal-cue');
-                    }
-                    baObserver.unobserve(entry.target);
+    const baObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                const handleBtn = entry.target.querySelector('.ba-handle-button');
+                if (handleBtn) {
+                    handleBtn.classList.add('reveal-cue');
                 }
-            });
-        }, { threshold: 0.15 });
-        baObserver.observe(baSection);
-    });
+                baObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    baContainers.forEach(c => baObserver.observe(c));
 
     // Intersection Observer for Fade-in effects
     const observer = new IntersectionObserver((entries) => {

@@ -124,35 +124,46 @@ body {
 }
 
 /* 1. HERO SECTION — Smooth Entrance Animations */
-.hero-anim-heading {
+.hero-badge {
     opacity: 0;
-    transform: translateY(24px);
-    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
     will-change: opacity, transform;
 }
 
-.hero-anim-subtext {
+.hero-title {
     opacity: 0;
     transform: translateY(24px);
-    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
     will-change: opacity, transform;
 }
 
-.hero-anim-cta {
+.hero-desc {
     opacity: 0;
     transform: translateY(24px);
-    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     will-change: opacity, transform;
 }
 
-.hero-anim-image {
+.hero-cta {
     opacity: 0;
-    transform: scale(0.94) translateY(16px);
-    animation: heroScaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    transform: translateY(24px);
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+    will-change: opacity, transform;
+}
+
+.hero-img-box {
+    opacity: 0;
+    transform: scale(0.95) translateY(18px);
+    animation: heroScaleIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
     will-change: opacity, transform;
 }
 
 @keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -160,6 +171,10 @@ body {
 }
 
 @keyframes heroScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(18px);
+    }
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -172,17 +187,15 @@ body {
     will-change: transform, box-shadow;
 }
 
-.card-hover:hover, .service-card:hover,
-.fade-in.visible.card-hover:hover, .fade-in.visible.service-card:hover {
+.card-hover:hover, .service-card:hover {
     transform: translateY(-8px) !important;
-    box-shadow: 0 22px 40px -10px rgba(200, 125, 74, 0.28) !important;
-    border-color: rgba(200, 125, 74, 0.5) !important;
+    box-shadow: 0 20px 40px -10px rgba(200, 125, 74, 0.3) !important;
+    border-color: rgba(200, 125, 74, 0.6) !important;
 }
 
-.dark .card-hover:hover, .dark .service-card:hover,
-.dark .fade-in.visible.card-hover:hover, .dark .fade-in.visible.service-card:hover {
-    box-shadow: 0 22px 40px -10px rgba(0, 0, 0, 0.75) !important;
-    border-color: rgba(212, 175, 55, 0.4) !important;
+.dark .card-hover:hover, .dark .service-card:hover {
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75) !important;
+    border-color: rgba(212, 175, 55, 0.5) !important;
 }
 
 .card-hover img, .service-card img {
@@ -190,31 +203,30 @@ body {
     will-change: transform;
 }
 
-.card-hover:hover img, .service-card:hover img,
-.fade-in.visible.card-hover:hover img, .fade-in.visible.service-card:hover img {
+.card-hover:hover img, .service-card:hover img {
     transform: scale(1.05) !important;
 }
 
-/* 3. BEFORE & AFTER SECTION — Scroll Reveal & Subtle Handle Cue */
-.ba-section-reveal {
+/* 3. BEFORE & AFTER SECTION — Scroll Reveal & Handle Cue */
+.ba-container {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
-.ba-section-reveal.visible {
+.ba-container.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .ba-handle-button.reveal-cue {
-    animation: handleCue 0.85s ease-out 0.4s 1;
+    animation: handlePulse 0.9s ease-out 0.4s 1;
 }
 
-@keyframes handleCue {
+@keyframes handlePulse {
     0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.22); box-shadow: 0 8px 24px rgba(200, 125, 74, 0.6); }
+    50% { transform: translate(-50%, -50%) scale(1.25); box-shadow: 0 0 20px rgba(200, 125, 74, 0.8); }
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
