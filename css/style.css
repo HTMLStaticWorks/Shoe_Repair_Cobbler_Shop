@@ -126,29 +126,29 @@ body {
 /* 1. HERO SECTION — Smooth Entrance Animations */
 .hero-anim-heading {
     opacity: 0;
-    transform: translateY(20px);
-    animation: heroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    transform: translateY(24px);
+    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
     will-change: opacity, transform;
 }
 
 .hero-anim-subtext {
     opacity: 0;
-    transform: translateY(20px);
-    animation: heroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    transform: translateY(24px);
+    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
     will-change: opacity, transform;
 }
 
 .hero-anim-cta {
     opacity: 0;
-    transform: translateY(20px);
-    animation: heroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    transform: translateY(24px);
+    animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     will-change: opacity, transform;
 }
 
 .hero-anim-image {
     opacity: 0;
-    transform: scale(0.97) translateY(10px);
-    animation: heroScaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    transform: scale(0.94) translateY(16px);
+    animation: heroScaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
     will-change: opacity, transform;
 }
 
@@ -172,29 +172,34 @@ body {
     will-change: transform, box-shadow;
 }
 
-.card-hover:hover, .service-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 20px 35px -8px rgba(124, 74, 39, 0.18) !important;
+.card-hover:hover, .service-card:hover,
+.fade-in.visible.card-hover:hover, .fade-in.visible.service-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 22px 40px -10px rgba(200, 125, 74, 0.28) !important;
+    border-color: rgba(200, 125, 74, 0.5) !important;
 }
 
-.dark .card-hover:hover, .dark .service-card:hover {
-    box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.55) !important;
+.dark .card-hover:hover, .dark .service-card:hover,
+.dark .fade-in.visible.card-hover:hover, .dark .fade-in.visible.service-card:hover {
+    box-shadow: 0 22px 40px -10px rgba(0, 0, 0, 0.75) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
 }
 
 .card-hover img, .service-card img {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
     will-change: transform;
 }
 
-.card-hover:hover img, .service-card:hover img {
-    transform: scale(1.03) !important;
+.card-hover:hover img, .service-card:hover img,
+.fade-in.visible.card-hover:hover img, .fade-in.visible.service-card:hover img {
+    transform: scale(1.05) !important;
 }
 
 /* 3. BEFORE & AFTER SECTION — Scroll Reveal & Subtle Handle Cue */
 .ba-section-reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
@@ -204,12 +209,12 @@ body {
 }
 
 .ba-handle-button.reveal-cue {
-    animation: handleCue 0.8s ease-out 0.5s 1;
+    animation: handleCue 0.85s ease-out 0.4s 1;
 }
 
 @keyframes handleCue {
     0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.18); box-shadow: 0 6px 18px rgba(200, 125, 74, 0.5); }
+    50% { transform: translate(-50%, -50%) scale(1.22); box-shadow: 0 8px 24px rgba(200, 125, 74, 0.6); }
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
