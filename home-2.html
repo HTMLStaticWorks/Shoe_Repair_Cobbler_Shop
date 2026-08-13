@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expert Shoe Repair. Crafted to Last | SoleCraft Cobbler</title>
     <meta name="description" content="Traditional cobbler craftsmanship, Goodyear welt resoling, heel restoration, and leather care. Precision work crafted to last.">
+    <!-- Early Theme Initialization Script -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -76,14 +88,8 @@
                 </a>
             </div>
 
-            <!-- Mobile & Tablet Menu Toggle Button & Utility Cart (Visible <= 1024px) -->
+            <!-- Mobile & Tablet Menu Toggle Button (Visible <= 1024px) -->
             <div class="flex xl:hidden items-center gap-3">
-                <button id="cart-toggle-header-mobile" class="p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors relative text-stone-700 dark:text-stone-300" title="View Quote Request">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                    </svg>
-                    <span class="cart-badge">0</span>
-                </button>
                 <button id="mobile-menu-btn" class="p-2.5 text-stone-800 dark:text-stone-100 hover:text-amber-600 focus:outline-none" aria-label="Open Navigation Menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -169,11 +175,11 @@
                         Built on generations of cobbler expertise, we combine traditional Goodyear welt stitching with modern Vibram technology to extend the life of your finest shoes.
                     </p>
 
-                    <div class="flex flex-wrap gap-4 pt-2 max-lg:justify-center max-lg:items-center max-lg:w-full">
-                        <a href="contact.html#dropoff" class="btn-cobbler py-3.5 px-7 text-sm font-semibold uppercase tracking-wider">
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2 max-lg:justify-center max-lg:items-center max-lg:w-full">
+                        <a href="contact.html#dropoff" class="btn-cobbler py-3.5 px-7 text-sm font-semibold uppercase tracking-wider w-full sm:w-auto max-w-xs justify-center">
                             Book Shoe Repair
                         </a>
-                        <a href="shop.html" class="btn-outline-cobbler py-3.5 px-7 text-sm font-semibold uppercase tracking-wider">
+                        <a href="shop.html" class="btn-outline-cobbler py-3.5 px-7 text-sm font-semibold uppercase tracking-wider w-full sm:w-auto max-w-xs justify-center">
                             Explore Services
                         </a>
                     </div>
@@ -269,8 +275,8 @@
                     </div>
                 </div>
 
-                <div class="p-4 bg-stone-900/80 rounded-xl border-2 border-amber-500/80 flex flex-col justify-between relative shadow-lg">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[10px] uppercase font-bold px-3 py-0.5 rounded-full">Most Requested</span>
+                <div class="p-4 pt-7 bg-stone-900/80 rounded-xl border-2 border-amber-500/80 flex flex-col justify-between relative shadow-lg">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[10px] uppercase font-bold px-3 py-0.5 rounded-full whitespace-nowrap z-10">Most Requested</span>
                     <div>
                         <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1">Service Level 02</span>
                         <h4 class="text-lg font-bold serif-font text-white mb-2">Standard Resole & Heel</h4>

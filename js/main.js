@@ -23,14 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.classList.add(savedTheme);
-    body.classList.add(savedTheme);
-    updateThemeIcon(savedTheme);
+    if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        if (body) {
+            body.classList.remove('dark');
+            body.classList.add('light');
+        }
+    } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        if (body) {
+            body.classList.remove('light');
+            body.classList.add('dark');
+        }
+    }
 
     // Initialize RTL
     const savedRTL = localStorage.getItem('rtl') === 'true';
     document.documentElement.setAttribute('dir', savedRTL ? 'rtl' : 'ltr');
-    updateRTLText(savedRTL);
 
     // Theme Toggle Handler
     const themeBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
@@ -40,10 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
                 const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 
-                document.documentElement.classList.remove(currentTheme);
+                document.documentElement.classList.remove('dark', 'light');
                 document.documentElement.classList.add(targetTheme);
-                body.classList.remove(currentTheme);
-                body.classList.add(targetTheme);
+                if (body) {
+                    body.classList.remove('dark', 'light');
+                    body.classList.add(targetTheme);
+                }
                 
                 localStorage.setItem('theme', targetTheme);
                 themeBtns.forEach(b => updateThemeIcon(b, targetTheme));

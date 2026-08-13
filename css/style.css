@@ -315,6 +315,7 @@ header.sticky {
 /* Premium Buttons */
 .btn-cobbler {
     background-color: var(--primary);
+    border: 2px solid var(--primary);
     color: #ffffff;
     font-weight: 600;
     padding: 0.75rem 1.75rem;
@@ -330,6 +331,7 @@ header.sticky {
 
 .btn-cobbler:hover {
     background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(124, 74, 39, 0.35);
 }
@@ -338,7 +340,7 @@ header.sticky {
     border: 2px solid var(--primary);
     color: var(--primary);
     font-weight: 600;
-    padding: 0.7rem 1.6rem;
+    padding: 0.75rem 1.75rem;
     border-radius: 0.375rem;
     display: inline-flex;
     align-items: center;
@@ -534,10 +536,20 @@ header.sticky {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile Touch Targets */
+/* Mobile Touch Targets (Excluding inline text links) */
 @media (max-width: 1024px) {
-    button, a {
+    button:not(.toggle-password),
+    .btn-cobbler,
+    .btn-outline-cobbler,
+    .nav-link,
+    header a {
         min-height: 44px;
+    }
+
+    /* Ensure inline text links do not stretch vertically */
+    p a, label a, span a, .whitespace-nowrap a, form a:not(.btn-cobbler) {
+        min-height: auto !important;
+        display: inline !important;
     }
 }
 
